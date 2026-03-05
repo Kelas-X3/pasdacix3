@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KELAS X-8 | SMA PASDACI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+  overflow:hidden;
+}
+
+/* Star Background */
+.stars{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation:moveStars 200s linear infinite;
+  opacity:.3;
+}
+
+/* Hero Section */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+}
+
+/* Moon */
+.moon{
+  position:absolute;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff000,#000ff 40%,#fff888 65%,#333 100%);
+  box-shadow:0 0 120px rgba(255,255,255,0.35);
+  animation:float 6s ease-in-out infinite, glow 4s ease-in-out infinite alternate;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:5rem;
+  letter-spacing:1.2rem;
+  margin-bottom:20px;
+  animation:fadeDown 2s ease;
+}
+
+p{
+  color:#ffff;
+  max-width:600px;
+  margin:0 auto 50px;
+  animation:fadeUp 2s ease .5s both;
+}
+
+.btn{
+  padding:15px 45px;
+  border:1px solid rgba(255,255,255,.4);
+  text-decoration:none;
+  color:#fff;
+  letter-spacing:3px;
+  font-size:.75rem;
+  transition:.4s;
+  backdrop-filter:blur(6px);
+  animation:fadeUp 2s ease 1s both;
+}
+
+.btn:hover{
+  background:#fff;
+  color:#000;
+  transform:translateY(-6px);
+}
+
+/* Transition overlay */
+.transition{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  opacity:0;
+  pointer-events:none;
+  transition:1s ease;
+  z-index:999;
+}
+
+.transition.active{
+  opacity:1;
+}
+
+/* Animations */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-25px)}
+}
+@keyframes glow{
+  from{box-shadow:0 0 100px rgba(255,255,255,.3)}
+  to{box-shadow:0 0 160px rgba(255,255,255,.6)}
+}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-50px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(50px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes moveStars{
+  from{background-position:0 0}
+  to{background-position:-10000px 5000px}
+}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="transition" id="transition"></div>
+
+<section class="hero">
+  <div class="moon"></div>
+  <div class="hero-content">
+    <h1>KELAS X-3</h1>
+    <p>Website yang dirancang khusus untuk kelas X-3</p>
+    <a href="" class="btn" id="enterBtn">ENTER</a>
+  </div>
+</section>
+
+<script>
+const btn = document.getElementById("enterBtn");
+const transition = document.getElementById("transition");
+
+btn.addEventListener("click", function(e){
+  e.preventDefault();
+  transition.classList.add("active");
+  setTimeout(()=>{
+    window.location.href = this.href;
+  },1000);
+});
+</script>
+
+</body>
+</html>i
